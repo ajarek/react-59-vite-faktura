@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/Navigation'
 import Facture from './pages/Facture/Facture'
 import Home from './pages/Home/Home'
 import Seller from './pages/Seller/Seller'
+import Buyer from './pages/Buyer/Buyer'
 export const AppContext = createContext()
 function App() {
   const [seller, setSeller] = useState({
@@ -14,8 +15,16 @@ function App() {
     nip:6711547895,
     ulica:'Młyńska 9'
   })
+  const [buyer, setBuyer] = useState({
+    email: 'vacat@gmail.com',
+    kod: '78-100 Kołobrzeg',
+    konto: '24845873541854269874521345',
+    nazwa: 'Firma Vacat',
+    nip:6711300981,
+    ulica:'Różana 36'
+  })
   return <div className='App'>
-     <AppContext.Provider value={{seller, setSeller}}>
+     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer}}>
     <Navigation/>
     <Routes>
     <Route
@@ -25,6 +34,10 @@ function App() {
     <Route
           path='/seller'
           element={<Seller />}
+        />
+    <Route
+          path='/buyer'
+          element={<Buyer />}
         />
     <Route
           path='/facture'

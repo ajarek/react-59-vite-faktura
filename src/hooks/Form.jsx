@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-export const Form = ({ onSubmit }) => {
+export const Form = ({ onSubmit,label }) => {
   const schema = yup.object().shape({
     nazwa: yup.string().required(),
     ulica: yup.string().required(),
@@ -80,7 +80,7 @@ export const Form = ({ onSubmit }) => {
       <p>{errors.konto?.message}</p>
       <input
         type='submit'
-        value={'Dodaj Sprzedawcę'}
+        value={label}
       />
     </form>
   )

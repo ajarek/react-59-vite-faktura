@@ -3,18 +3,21 @@ import { AppContext } from '../../App'
 import './Facture.css'
 import Table from '../../components/Table/Table'
 const Facture = () => {
-  const {seller, setSeller} = useContext(AppContext)
+  const {seller, setSeller,buyer, setBuyer} = useContext(AppContext)
 
   const newNip=String(seller.nip)
-  const formattedNipNumber =
-  newNip.slice(0, 3) +
+  const newNipBuyer=String(buyer.nip)
+  const formattedNipNumber =(str)=>{
+  return ( 
+  str.slice(0, 3) +
   '-' +
-  newNip.slice(3, 6) +
+  str.slice(3, 6) +
   '-' +
-  newNip.slice(6, 8) +
+  str.slice(6, 8) +
   '-' +
-  newNip.slice(8, 10);
-
+  str.slice(8, 10)
+  )
+}
 const newKonto=String(seller.konto)
  const formattedKontoNumber =
   newKonto.slice(0, 2) +
@@ -46,17 +49,17 @@ const newKonto=String(seller.konto)
         <div className="name">{seller.nazwa}</div>
         <div className="address">{seller.ulica}</div>
         <div className="city"><span>{seller.kod}</span></div>
-        <div className="nip">NIP: <span>{formattedNipNumber}</span></div>
+        <div className="nip">NIP: <span>{ formattedNipNumber(newNip)}</span></div>
         <div className="email">e-mail: <span>{seller.email}</span></div>
         <div className="cont">Nr konta: <span>{formattedKontoNumber}</span></div>
       </div>
       <div className="nabywca">
         <div className="title"><h2>Nabywca</h2></div>
-        <div className="name">Vacat</div>
-        <div className="address">ul.Wielkopolska 2a</div>
-        <div className="city"><span>78-100</span>Kołobrzeg</div>
-        <div className="nip">NIP: <span>671-130-09-81</span></div>
-        <div className="email">e-mail: <span>cacat@onet.pl</span></div>
+        <div className="name">{buyer.nazwa}</div>
+        <div className="address">{buyer.ulica}</div>
+        <div className="city"><span>{buyer.kod}</span></div>
+        <div className="nip">NIP: <span>{formattedNipNumber(newNipBuyer)}</span></div>
+        <div className="email">e-mail: <span>{buyer.email}</span></div>
       </div>
       </div>
       <Table/>

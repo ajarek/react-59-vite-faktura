@@ -1,13 +1,13 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../../App'
 import { Form } from '../../hooks/Form'
-import './Seller.css'
+import './Buyer.css'
 
-const Seller = () => {
-  const {seller, setSeller} = useContext(AppContext)
+const Buyer = () => {
+  const {buyer, setBuyer} = useContext(AppContext)
 
   const onSubmit = (data) => {
-    const newSeller = {
+    const newBuyer = {
       email: data.email,
       kod: data.kod,
       konto:data.konto,
@@ -15,15 +15,15 @@ const Seller = () => {
       nip:data.nip,
       ulica:data.ulica
     }
-   setSeller(newSeller)
+   setBuyer(newBuyer)
   }
-  console.log(seller);
+  console.log(buyer);
   return (
-    <div className='seller'>
-      <h2>Dodaj Sprzedawcę</h2>
-      <Form onSubmit={onSubmit} label={'Dodaj Sprzedawcę'} />
+    <div className='buyer'>
+      <h2>Dodaj Nabywcę</h2>
+      <Form onSubmit={onSubmit} label={'Dodaj Nabywcę'}/>
     </div>
   )
 }
 
-export default Seller
+export default Buyer
