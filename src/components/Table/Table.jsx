@@ -1,6 +1,9 @@
-import React from 'react'
+import { React, useState, useContext, useEffect } from 'react'
+import { AppContext } from '../../App'
 import './Table.css'
 const Table = () => {
+  const {detalTransaction} = useContext(AppContext)
+  console.log(detalTransaction);
   return (
     <div className='table'>
       <table>
@@ -19,46 +22,26 @@ const Table = () => {
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>1</td>
-            <td>Telewizor HDR</td>
-            <td>1</td>
-            <td>szt</td>
-            <td>1000.00</td>
-            <td>23%</td>
-            <td>1000.00</td>
-            <td>230.00</td>
-            <td>1230.00</td>
+      {detalTransaction.map((transaction,index) => {
+        return(
+        <tr key={index}>
+            <td>{index+1}</td>
+            <td>{transaction.towar}</td>
+            <td>{transaction.ilosc}</td>
+            <td>{transaction.miara}</td>
+            <td>{(+transaction.netto).toFixed(2)}</td>
+            <td>{transaction.vat}%</td>
+            <td>{(transaction.ilosc*transaction.netto).toFixed(2)}</td>
+            <td>{(transaction.ilosc*transaction.netto*23/100).toFixed(2)}</td>
+            <td>{((transaction.ilosc*transaction.netto)+(transaction.ilosc*transaction.netto*23/100)).toFixed(2)}</td>
             
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Motorola</td>
-            <td>1</td>
-            <td>szt</td>
-            <td>1000.00</td>
-            <td>23%</td>
-            <td>1000.00</td>
-            <td>230.00</td>
-            <td>1230.00</td>
-            
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Piekarnik</td>
-            <td>1</td>
-            <td>szt</td>
-            <td>1000.00</td>
-            <td>23%</td>
-            <td>1000.00</td>
-            <td>230.00</td>
-            <td>1230.00</td>
-            
-        </tr>
+        )
+      })}
     </tbody>
     <tfoot>
       <tr>
-        <td colSpan="9">SUMA: <span> 3690.00</span></td>
+        <td colSpan="9">SUMA: <span>{detalTransaction.reduce((acc,item)=>(acc+(item.netto*item.ilosc*1.23)),0).toFixed(2)}</span></td>
       </tr>
     </tfoot>
 </table>

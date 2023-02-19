@@ -1,27 +1,26 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../../App'
-import { Form } from '../../hooks/Form'
+import { FormTransaction } from '../../hooks/FormTransaction'
 import './Transaction.css'
 
 const Transaction = () => {
-  const {buyer, setBuyer} = useContext(AppContext)
+  const {detalTransaction, setDetalTransaction} = useContext(AppContext)
 
   const onSubmit = (data) => {
-    const newBuyer = {
-      email: data.email,
-      kod: data.kod,
-      konto:data.konto,
-      nazwa: data.nazwa,
-      nip:data.nip,
-      ulica:data.ulica
+    const newTransaction = {
+      towar: data.towar,
+      ilosc: data.ilosc,
+      miara: data.miara,
+      netto: data.netto,
+      vat: data.vat,
     }
-   setBuyer(newBuyer)
+   setDetalTransaction([...detalTransaction, newTransaction])
   }
-  console.log(buyer);
+  console.log(detalTransaction)
   return (
     <div className='transaction'>
       <h2>Dodaj Transakcję</h2>
-      <Form onSubmit={onSubmit} label={'Dodaj Transakcję'}/>
+      <FormTransaction onSubmit={onSubmit} label={'Dodaj Transakcję'}/>
     </div>
   )
 }

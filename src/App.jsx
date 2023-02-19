@@ -29,9 +29,16 @@ function App() {
     sprzed: '2023.02.10',
     nr: '01/02/2023',
   })
+  const [detalTransaction, setDetalTransaction] = useState([{
+        towar:null|| 'Telewizor HDR',
+        ilosc:null|| '2',
+        miara:null|| 'szt',
+        netto:null|| '2400',
+        vat:null|| '23',
+  }])
   
   return <div className='App'>
-     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction}}>
+     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction, detalTransaction, setDetalTransaction}}>
     <Navigation/>
     <Routes>
     <Route

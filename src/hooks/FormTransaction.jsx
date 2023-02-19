@@ -3,11 +3,13 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-export const Form = ({ onSubmit,label }) => {
+export const FormTransaction = ({ onSubmit,label }) => {
   const schema = yup.object().shape({
-    wystaw: yup.date().required(),
-    sprzed: yup.date().required(),
-    nr: yup.string().required(),
+    towar: yup.string().required(),
+    ilosc: yup.string().required(),
+   miara: yup.string().required(),
+   netto: yup.string().required(),
+   vat: yup.string().required(),
   })
 
   const {
@@ -22,9 +24,11 @@ export const Form = ({ onSubmit,label }) => {
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
       reset({
-        wystaw: '',
-        sprzed: '',
-        nr: '',
+        towar: '',
+        ilosc: '',
+        miara: '',
+        netto: '',
+        vat: '',
 
       })
     }
@@ -36,23 +40,35 @@ export const Form = ({ onSubmit,label }) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <input
-        type='date'
-        placeholder='Data wystawienia...'
-        {...register('wystaw')}
+        type='text'
+        placeholder='Nazwa Towaru/Usługi...'
+        {...register('towar')}
       />
-      <p>{errors.wystaw?.message}</p>
+      <p>{errors.towar?.message}</p>
       <input
-        type='date'
-        placeholder='Data sprzedaży...'
-        {...register('sprzed')}
+        type='number'
+        placeholder='Ilość...'
+        {...register('ilosc')}
       />
-      <p>{errors.sprzed?.message}</p>
+      <p>{errors.ilosc?.message}</p>
       <input
         type='text'
-        placeholder='Nr faktury...'
-        {...register('nr')}
+        placeholder='Jednostka Miary...'
+        {...register('miara')}
       />
-      <p>{errors.nr?.message}</p>
+      <p>{errors.miara?.message}</p>
+      <input
+        type='number'
+        placeholder='Cena netto...'
+        {...register('netto')}
+      />
+      <p>{errors.netto?.message}</p>
+      <input
+        type='text'
+        placeholder='Stawka VAT...'
+        {...register('vat')}
+      />
+      <p>{errors.vat?.message}</p>
      
       <input
         type='submit'
