@@ -58,7 +58,7 @@ const Table = () => {
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="9">SUMA: <span> 3690.00</span></td>
+        <td colSpan="9">SUMA: <span> 3690.00</span></td>
       </tr>
     </tfoot>
 </table>
