@@ -3,8 +3,14 @@ import { AppContext } from '../../App'
 import './Facture.css'
 import Table from '../../components/Table/Table'
 const Facture = () => {
-  const {seller, setSeller,buyer, setBuyer} = useContext(AppContext)
-
+  const {seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction} = useContext(AppContext)
+  const dateFormat=(dateNew)=>{
+  const date = new Date(dateNew);
+  const day = date.getDate()
+  const month=date.toLocaleDateString('en-US', { month: 'numeric' })
+  const year = date.getFullYear()
+  return `${day<10?'0'+day:day}-${month<10?'0'+month:month}-${year}`
+}
   const newNip=String(seller.nip)
   const newNipBuyer=String(buyer.nip)
   const formattedNipNumber =(str)=>{
@@ -36,12 +42,12 @@ const newKonto=String(seller.konto)
 
   return (
     <div className='facture'>
-      <div className="header">
-        <p>Data wystawienia <span>2023-02-17</span></p>
-        <p>Data sprzedaży <span>2023-02-17</span></p>
+      <div className="header"  >
+        <p>Data wystawienia <span style={{fontFamily:'monospace',fontSize:'1.1rem'}}>{dateFormat(dataTransaction.wystaw)}</span></p>
+        <p>Data sprzedaży <span style={{fontFamily:'monospace',fontSize:'1.1rem'}}>{dateFormat(dataTransaction.sprzed)}</span></p>
       </div>
       <div className="nr">
-        <h1>Faktura nr: <span>3/02/2023</span></h1>
+        <h1>Faktura nr: <span>{dataTransaction.nr}</span></h1>
       </div>
       <div className="facture-wrapper">
       <div className="sprzedawca">

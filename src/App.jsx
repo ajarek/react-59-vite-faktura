@@ -5,6 +5,7 @@ import Facture from './pages/Facture/Facture'
 import Home from './pages/Home/Home'
 import Seller from './pages/Seller/Seller'
 import Buyer from './pages/Buyer/Buyer'
+import Transaction from './pages/Transaction/Transaction'
 export const AppContext = createContext()
 function App() {
   const [seller, setSeller] = useState({
@@ -23,8 +24,14 @@ function App() {
     nip:6711300981,
     ulica:'Różana 36'
   })
+  const [dataTransaction, setDataTransaction] = useState({
+    wystaw: '2023.02.11',
+    sprzed: '2023.02.10',
+    nr: '01/02/2023',
+  })
+  
   return <div className='App'>
-     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer}}>
+     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction}}>
     <Navigation/>
     <Routes>
     <Route
@@ -38,6 +45,10 @@ function App() {
     <Route
           path='/buyer'
           element={<Buyer />}
+        />
+    <Route
+          path='/transaction'
+          element={<Transaction />}
         />
     <Route
           path='/facture'

@@ -39,6 +39,12 @@ const Navigation = () => {
         </NavLink>
         <NavLink
           className={'link'}
+          to='/transaction'
+        >
+          Transakcja
+        </NavLink>
+        <NavLink
+          className={'link'}
           to='/facture'
         >
           Faktura

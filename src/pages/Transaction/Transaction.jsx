@@ -1,9 +1,9 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { AppContext } from '../../App'
 import { Form } from '../../hooks/Form'
-import './Buyer.css'
+import './Transaction.css'
 
-const Buyer = () => {
+const Transaction = () => {
   const {buyer, setBuyer} = useContext(AppContext)
 
   const onSubmit = (data) => {
@@ -17,13 +17,13 @@ const Buyer = () => {
     }
    setBuyer(newBuyer)
   }
-  
+  console.log(buyer);
   return (
-    <div className='buyer'>
-      <h2>Dodaj Nabywcę</h2>
-      <Form onSubmit={onSubmit} label={'Dodaj Nabywcę'}/>
+    <div className='transaction'>
+      <h2>Dodaj Transakcję</h2>
+      <Form onSubmit={onSubmit} label={'Dodaj Transakcję'}/>
     </div>
   )
 }
 
-export default Buyer
+export default Transaction
