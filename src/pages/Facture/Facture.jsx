@@ -1,8 +1,16 @@
-import { React, useState, useContext, useEffect } from 'react'
+import { React, useState, useContext, useEffect,useRef } from 'react'
 import { AppContext } from '../../App'
 import './Facture.css'
 import Table from '../../components/Table/Table'
+import { useReactToPrint } from 'react-to-print'
+
+
 const Facture = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
   const {seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction} = useContext(AppContext)
   const dateFormat=(dateNew)=>{
   const date = new Date(dateNew);
@@ -41,7 +49,8 @@ const newKonto=String(seller.konto)
   newKonto.slice(22, 26);
 
   return (
-    <div className='facture'>
+    
+    <div className='facture' ref={componentRef}>  
       <div className="header"  >
         <p>Data wystawienia <span style={{fontFamily:'monospace',fontSize:'1.1rem'}}>{dateFormat(dataTransaction.wystaw)}</span></p>
         <p>Data sprzedaży <span style={{fontFamily:'monospace',fontSize:'1.1rem'}}>{dateFormat(dataTransaction.sprzed)}</span></p>
@@ -73,8 +82,14 @@ const newKonto=String(seller.konto)
         <div className="exhibitor">------------------------------- <br /> osoba upoważniona do wystawienia </div>
         <div className="recipient">------------------------------- <br /> osoba upoważniona do odbioru </div>
        </div>
+       <div className='print'>
+       <button onClick={handlePrint}>Zapisz do PDF lub wydrukuj!</button>
+       </div>
     </div>
+
+    
   )
 }
 
 export default Facture
+

@@ -16,7 +16,6 @@ const Transaction = () => {
     }
    setDetalTransaction([...detalTransaction, newTransaction])
   }
-  console.log(detalTransaction)
   return (
     <div className='transaction'>
       <h2>Dodaj Transakcję</h2>

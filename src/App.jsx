@@ -7,7 +7,9 @@ import Seller from './pages/Seller/Seller'
 import Buyer from './pages/Buyer/Buyer'
 import Transaction from './pages/Transaction/Transaction'
 export const AppContext = createContext()
+
 function App() {
+ 
   const [seller, setSeller] = useState({
     email: 'kaufland@gmail.com',
     kod: '78-100 Kołobrzeg',

@@ -63,12 +63,17 @@ export const FormTransaction = ({ onSubmit,label }) => {
         {...register('netto')}
       />
       <p>{errors.netto?.message}</p>
-      <input
-        type='text'
-        placeholder='Stawka VAT...'
-        {...register('vat')}
-      />
-      <p>{errors.vat?.message}</p>
+      <label htmlFor="">Wybierz stawkę Vat</label>
+      <select
+          {...register('vat')}
+          
+        >
+          <option value='23'>23%</option>
+          <option value='8'>8%</option>
+          <option value='0'>0%</option>
+          
+        </select>
+        <p>{errors.select?.message}</p>
      
       <input
         type='submit'

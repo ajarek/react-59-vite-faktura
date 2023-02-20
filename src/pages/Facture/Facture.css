@@ -4,7 +4,7 @@
   min-height:1123px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.5);
   background-color: aliceblue;
-  margin-top: 10vh;
+  
 }
 .facture .header{
   width: 100%;
@@ -33,4 +33,24 @@
   display: flex;
   justify-content: space-evenly;
   font-size: 0.8rem;
+}
+.facture .print{
+  position: absolute;
+  bottom: -2rem;
+  left:50%;
+  transform: translateX(-50%);
+}
+.facture .print button{
+  background: #99adc3;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  border: 0;
+  margin-top: 1rem;
+  transition: all 0.4s ease-in-out;
+}
+.facture .print button:hover{
+  background-color: #0d6efd;
+  color: #fff;
 }

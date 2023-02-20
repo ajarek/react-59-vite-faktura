@@ -17,7 +17,7 @@ const Seller = () => {
     }
    setSeller(newSeller)
   }
-  console.log(seller);
+ 
   return (
     <div className='seller'>
       <h2>Dodaj Sprzedawcę</h2>
