@@ -4,7 +4,7 @@ import { Form } from '../../hooks/Form'
 import './Seller.css'
 
 const Seller = () => {
-  const {seller, setSeller} = useContext(AppContext)
+  const {seller, setSeller,navigate} = useContext(AppContext)
 
   const onSubmit = (data) => {
     const newSeller = {
@@ -16,6 +16,7 @@ const Seller = () => {
       ulica:data.ulica
     }
    setSeller(newSeller)
+   navigate("/buyer");
   }
  
   return (

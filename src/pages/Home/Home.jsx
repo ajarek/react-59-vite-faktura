@@ -3,14 +3,17 @@ import { AppContext } from '../../App'
 import {FormDate} from '../../hooks/FormDate'
 import './Home.css'
 const Home = () => {
-  const {dataTransaction, setDataTransaction} = useContext(AppContext)
+  const {dataTransaction, setDataTransaction,navigate} = useContext(AppContext)
   const onSubmit = (data) => {
     const newData = {
       wystaw: data.wystaw,
       sprzed: data.sprzed,
       nr:data.nr,
+      way:data.way,
+      termin:data.termin
     }
     setDataTransaction(newData)
+    navigate("/seller");
   }
   
   return (

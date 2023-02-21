@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react'
-import {Routes,Route } from "react-router-dom";
+import {Routes,Route,useNavigate } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation'
 import Facture from './pages/Facture/Facture'
 import Home from './pages/Home/Home'
@@ -9,7 +9,8 @@ import Transaction from './pages/Transaction/Transaction'
 export const AppContext = createContext()
 
 function App() {
- 
+  const navigate = useNavigate();
+
   const [seller, setSeller] = useState({
     email: 'kaufland@gmail.com',
     kod: '78-100 Kołobrzeg',
@@ -30,17 +31,13 @@ function App() {
     wystaw: '2023.02.11',
     sprzed: '2023.02.10',
     nr: '01/02/2023',
+    way:'przelew',
+    termin:'14'
   })
-  const [detalTransaction, setDetalTransaction] = useState([{
-        towar:null|| 'Telewizor HDR',
-        ilosc:null|| '2',
-        miara:null|| 'szt',
-        netto:null|| '2400',
-        vat:null|| '23',
-  }])
+  const [detalTransaction, setDetalTransaction] = useState([])
   
   return <div className='App'>
-     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction, detalTransaction, setDetalTransaction}}>
+     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction, detalTransaction, setDetalTransaction,navigate}}>
     <Navigation/>
     <Routes>
     <Route

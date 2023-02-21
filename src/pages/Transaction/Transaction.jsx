@@ -4,7 +4,7 @@ import { FormTransaction } from '../../hooks/FormTransaction'
 import './Transaction.css'
 
 const Transaction = () => {
-  const {detalTransaction, setDetalTransaction} = useContext(AppContext)
+  const {detalTransaction, setDetalTransaction,navigate} = useContext(AppContext)
 
   const onSubmit = (data) => {
     const newTransaction = {
@@ -15,6 +15,7 @@ const Transaction = () => {
       vat: data.vat,
     }
    setDetalTransaction([...detalTransaction, newTransaction])
+   navigate("/facture");
   }
   return (
     <div className='transaction'>

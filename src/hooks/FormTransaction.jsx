@@ -61,6 +61,7 @@ export const FormTransaction = ({ onSubmit,label }) => {
         type='number'
         placeholder='Cena netto...'
         {...register('netto')}
+        step={'0.01'}
       />
       <p>{errors.netto?.message}</p>
       <label htmlFor="">Wybierz stawkę Vat</label>
