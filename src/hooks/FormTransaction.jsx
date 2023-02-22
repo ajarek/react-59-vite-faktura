@@ -3,13 +3,13 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-export const FormTransaction = ({ onSubmit,label }) => {
+export const FormTransaction = ({ onSubmit, label }) => {
   const schema = yup.object().shape({
     towar: yup.string().required(),
     ilosc: yup.string().required(),
-   miara: yup.string().required(),
-   netto: yup.string().required(),
-   vat: yup.string().required(),
+    miara: yup.string().required(),
+    netto: yup.string().required(),
+    vat: yup.string().required(),
   })
 
   const {
@@ -29,7 +29,6 @@ export const FormTransaction = ({ onSubmit,label }) => {
         miara: '',
         netto: '',
         vat: '',
-
       })
     }
   }, [formState, reset])
@@ -64,18 +63,14 @@ export const FormTransaction = ({ onSubmit,label }) => {
         step={'0.01'}
       />
       <p>{errors.netto?.message}</p>
-      <label htmlFor="">Wybierz stawkę Vat</label>
-      <select
-          {...register('vat')}
-          
-        >
-          <option value='23'>23%</option>
-          <option value='8'>8%</option>
-          <option value='0'>0%</option>
-          
-        </select>
-        <p>{errors.select?.message}</p>
-     
+      <label htmlFor=''>Wybierz stawkę Vat</label>
+      <select {...register('vat')}>
+        <option value='23'>23%</option>
+        <option value='8'>8%</option>
+        <option value='0'>0%</option>
+      </select>
+      <p>{errors.select?.message}</p>
+
       <input
         type='submit'
         value={label}

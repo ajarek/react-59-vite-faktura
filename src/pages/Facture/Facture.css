@@ -1,19 +1,18 @@
-.facture{
+.facture {
   padding: 2rem 1rem;
   width: 794px;
-  min-height:1123px;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+  min-height: 1123px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
-  
 }
-.facture .header{
+.facture .header {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 2rem;
 }
-.facture .nr{
+.facture .nr {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -21,26 +20,26 @@
   border-bottom: 1px solid black;
   background-color: gainsboro;
 }
-.facture .facture-wrapper{
+.facture .facture-wrapper {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin: 2rem 0;
 }
-.facture .signature{
+.facture .signature {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   font-size: 0.8rem;
 }
-.facture .print{
+.facture .print {
   position: absolute;
   bottom: -2rem;
-  left:50%;
+  left: 50%;
   transform: translateX(-50%);
 }
-.facture .print button{
+.facture .print button {
   background: #99adc3;
   padding: 0.5rem 1rem;
   font-weight: 600;
@@ -50,25 +49,24 @@
   margin-top: 1rem;
   transition: all 0.4s ease-in-out;
 }
-.facture .print button:hover{
+.facture .print button:hover {
   background-color: #0d6efd;
   color: #fff;
 }
-@media (max-width:794px) {
+@media (max-width: 794px) {
   .facture {
     width: 100%;
     height: 100%;
   }
-  .facture .header{
+  .facture .header {
     align-items: flex-start;
     font-size: 0.8rem;
   }
-  .facture .nr h1{
+  .facture .nr h1 {
     font-size: 1rem;
     font-weight: 400;
   }
-  .facture .facture-wrapper{
-    grid-template-columns: repeat(1,1fr);
+  .facture .facture-wrapper {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
 }

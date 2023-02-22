@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react'
-import {Routes,Route,useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation'
 import Facture from './pages/Facture/Facture'
 import Home from './pages/Home/Home'
@@ -9,61 +9,74 @@ import Transaction from './pages/Transaction/Transaction'
 export const AppContext = createContext()
 
 function App() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [seller, setSeller] = useState({
     email: 'kaufland@gmail.com',
     kod: '78-100 Kołobrzeg',
     konto: '24845873541854269874521345',
     nazwa: 'Kaufland',
-    nip:6711547895,
-    ulica:'Młyńska 9'
+    nip: 6711547895,
+    ulica: 'Młyńska 9',
   })
   const [buyer, setBuyer] = useState({
     email: 'vacat@gmail.com',
     kod: '78-100 Kołobrzeg',
     konto: '24845873541854269874521345',
     nazwa: 'Firma Vacat',
-    nip:6711300981,
-    ulica:'Różana 36'
+    nip: 6711300981,
+    ulica: 'Różana 36',
   })
   const [dataTransaction, setDataTransaction] = useState({
     wystaw: '2023.02.11',
     sprzed: '2023.02.10',
     nr: '01/02/2023',
-    way:'przelew',
-    termin:'14'
+    way: 'przelew',
+    termin: '14',
   })
   const [detalTransaction, setDetalTransaction] = useState([])
-  
-  return <div className='App'>
-     <AppContext.Provider value={{seller, setSeller,buyer, setBuyer,dataTransaction, setDataTransaction, detalTransaction, setDetalTransaction,navigate}}>
-    <Navigation/>
-    <Routes>
-    <Route
-          path='/'
-          element={<Home />}
-        />
-    <Route
-          path='/seller'
-          element={<Seller />}
-        />
-    <Route
-          path='/buyer'
-          element={<Buyer />}
-        />
-    <Route
-          path='/transaction'
-          element={<Transaction />}
-        />
-    <Route
-          path='/facture'
-          element={<Facture/>}
-        />
-    
-    </Routes>
-    </AppContext.Provider>
-  </div>
+
+  return (
+    <div className='App'>
+      <AppContext.Provider
+        value={{
+          seller,
+          setSeller,
+          buyer,
+          setBuyer,
+          dataTransaction,
+          setDataTransaction,
+          detalTransaction,
+          setDetalTransaction,
+          navigate,
+        }}
+      >
+        <Navigation />
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
+          <Route
+            path='/seller'
+            element={<Seller />}
+          />
+          <Route
+            path='/buyer'
+            element={<Buyer />}
+          />
+          <Route
+            path='/transaction'
+            element={<Transaction />}
+          />
+          <Route
+            path='/facture'
+            element={<Facture />}
+          />
+        </Routes>
+      </AppContext.Provider>
+    </div>
+  )
 }
 
 export default App

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-export const Form = ({ onSubmit,label }) => {
+export const Form = ({ onSubmit, label }) => {
   const schema = yup.object().shape({
     nazwa: yup.string().required(),
     ulica: yup.string().required(),
@@ -28,10 +28,9 @@ export const Form = ({ onSubmit,label }) => {
         nazwa: '',
         ulica: '',
         kod: '',
-       nip: '',
-       email: '',
-       konto:'',
-
+        nip: '',
+        email: '',
+        konto: '',
       })
     }
   }, [formState, reset])

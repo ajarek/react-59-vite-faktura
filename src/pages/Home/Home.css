@@ -1,4 +1,4 @@
-.home{
+.home {
   width: 100%;
   padding: 0 2rem;
 }
@@ -9,7 +9,7 @@
   justify-content: space-evenly;
   background-color: transparent;
 }
-.home .form label{
+.home .form label {
   width: 100%;
 }
 .home .form input {
@@ -40,4 +40,5 @@
 }
 .home .form p {
   color: #d82404;
-  font-size: 0.8rem;}
+  font-size: 0.8rem;
+}

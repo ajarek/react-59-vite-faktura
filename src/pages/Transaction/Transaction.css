@@ -1,4 +1,4 @@
-.transaction{
+.transaction {
   width: 100%;
   padding: 0 2rem;
 }
@@ -31,12 +31,12 @@
   margin-top: 1rem;
   transition: all 0.4s ease-in-out;
 }
-select{
-  width:100%;
+select {
+  width: 100%;
   height: 40px;
   font-size: 1.2rem;
   padding: 0 1rem;
-  outline:none;
+  outline: none;
   border: 1px solid #076dc0;
   border-radius: 3px;
 }
@@ -46,4 +46,5 @@ select{
 }
 .transaction .form p {
   color: #d82404;
-  font-size: 0.8rem;}
+  font-size: 0.8rem;
+}
