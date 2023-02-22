@@ -6,6 +6,9 @@ const Table = () => {
   const [vat23, setVat23] = useState([])
   const [vat8, setVat8] = useState([])
   const [vat0, setVat0] = useState([])
+  
+  let initialDate = new Date(dataTransaction.sprzed);
+  initialDate.setDate(initialDate.getDate() + (+dataTransaction.termin));
 
   detalTransaction?.map((trans, index) => {
     if (trans.vat === '23') {
@@ -18,7 +21,7 @@ const Table = () => {
       vat0.push(trans.netto * trans.ilosc)
     }
   })
-  console.log(dataTransaction)
+ 
   return (
     <div className='table'>
       <table>
@@ -176,7 +179,7 @@ const Table = () => {
         </div>
         {dataTransaction.way === 'przelew' ? (
           <div className='date-payment'>
-            Termin zapłaty <span>{dataTransaction.termin} dni 2023-03-03</span>
+            Termin zapłaty <span>{dataTransaction.termin} dni {initialDate.toLocaleDateString()}</span>
           </div>
         ) : null}
         <div className='all-payment'>
