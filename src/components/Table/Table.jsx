@@ -105,9 +105,10 @@ console.log(dataTransaction)
     </tbody>
     </table>
     <div className="payment-wrapper">
-    <div className="method-payment">Sposób zapłaty <span>{dataTransaction.way}</span></div>    
-    <div className="date-payment">Termin zapłaty <span>{dataTransaction.termin} dni 2023-03-03</span></div> 
-     
+    <div className="method-payment">Sposób zapłaty <span>{dataTransaction.way}</span></div>  
+    {dataTransaction.way ==='przelew'?  
+    <div className="date-payment">Termin zapłaty <span>{dataTransaction.termin} dni 2023-03-03</span></div> :null
+  }
     <div className="all-payment"><h3>Razem do zapłaty: <span>{detalTransaction?.reduce((acc,item)=>(acc+(item.netto*item.ilosc*(1+item.vat/100))),0).toFixed(2)}</span>PLN</h3></div>
     {/* <div className="amount-words">Kwota słownie: <span>trzy tysiące sześćset dziewięćdziesiąt</span> PLN <span>00/100</span></div> */}
     </div> 

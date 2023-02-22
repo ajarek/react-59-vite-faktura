@@ -83,7 +83,8 @@ export const FormDate = ({ onSubmit,label }) => {
         <p>{errors.way?.message}</p>
 
         
-        <label htmlFor="">Wybierz termin zapłaty</label>
+        <label htmlFor="">Wybierz termin zapłaty(dotyczy przelewu)
+        </label>
         <select
           {...register('termin')}
         >
